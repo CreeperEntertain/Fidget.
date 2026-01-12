@@ -1294,7 +1294,12 @@ particles:newParticle("end_rod", constraint.contactPoint1) particles:newParticle
           --update previous pos and rotation for rendering
 
 
-
+          if rigidbody.updatePrevPos then
+            rigidbody.prevPos = rigidbody.pos
+          end
+          if rigidbody.updatePrevRot then
+            rigidbody.prevRot = rigidbody.rot
+          end
           if rigidbody.linearMovement then
             rigidbody.pos = rigidbody.pos + rigidbody.vel * dt
             rigidbody.rot = normalize4(rigidbody.rot + (qultiply(rigidbody.rot, -rigidbody.rotVel._xyz * halfdt)))
@@ -1332,12 +1337,6 @@ particles:newParticle("end_rod", constraint.contactPoint1) particles:newParticle
     end
 
     for i, rigidbody in lnext, rigidbodies do
-      if rigidbody.updatePrevPos then
-        rigidbody.prevPos = rigidbody.pos
-      end
-      if rigidbody.updatePrevRot then
-        rigidbody.prevRot = rigidbody.rot
-      end
       if rigidbody.onTick then
         rigidbody.onTick(rigidbody)
       end
