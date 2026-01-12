@@ -1293,12 +1293,13 @@ particles:newParticle("end_rod", constraint.contactPoint1) particles:newParticle
           --physician hah hahhahahahahhah I so funny soo sooooo soooooooo funny bro
           --update previous pos and rotation for rendering
 
-
+          if i == 1 then
           if rigidbody.updatePrevPos then
             rigidbody.prevPos = rigidbody.pos
           end
           if rigidbody.updatePrevRot then
             rigidbody.prevRot = rigidbody.rot
+          end
           end
           if rigidbody.linearMovement then
             rigidbody.pos = rigidbody.pos + rigidbody.vel * dt
