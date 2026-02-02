@@ -203,11 +203,11 @@ function mtIndex.getRotataionDamping(self)
 end
 
 function mtIndex.setBodyCollision(self, yn)
-  self.bodyCollsion = yn
+  self.bodyCollision = yn
 end
 
 function mtIndex.getBodyCollision(self)
-  return self.bodyCollsion
+  return self.bodyCollision
 end
 
 
