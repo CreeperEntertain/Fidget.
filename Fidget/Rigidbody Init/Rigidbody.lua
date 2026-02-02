@@ -14,7 +14,9 @@ function mtIndex.remove(self)
   self.model:getParent():removeChild(self.model)
   self.model:remove()
   local index = self.index
+  if self.currentLink then
   self.currentLink:remove()
+  end
   for i, joint in pairs(Fidget.joints.allJoints) do
     if joint.rigidbody1.index == index then
       Fidget.joints.allJoints[i] = nil
@@ -267,8 +269,8 @@ function rigidbodies.raycast(startPos, endPos)
       (rigidbody.halfDimensions),
     } }
 
-    local aabb, hitPos, side, aabbHitIndex = raycast:aabb((startPos - rigidbody.pos) * rigidbody.rotMat:transposed(),
-      (endPos - rigidbody.pos) * rigidbody.rotMat:transposed(), aabb1)
+    local aabb, hitPos, side, aabbHitIndex = raycast:aabb((rigidbody.pos - startPos) * rigidbody.rotMat:transposed(),
+      (rigidbody.pos - endPos) * rigidbody.rotMat:transposed(), aabb1)
     if aabbHitIndex then
       local worldHitPos = (hitPos * rigidbody.rotMat) + rigidbody.pos
       AABBsHit[n] = { id = i, hitPos = worldHitPos, side = side, distance = length(startPos - worldHitPos) }
