@@ -194,11 +194,11 @@ function mtIndex.getDamping(self)
   return self.damping
 end
 
-function mtIndex.setRotataionDamping(self, yn)
+function mtIndex.setRotationDamping(self, yn)
   self.rotationDamping = yn
 end
 
-function mtIndex.getRotataionDamping(self)
+function mtIndex.getRotationDamping(self)
   return self.rotationDamping
 end
 
