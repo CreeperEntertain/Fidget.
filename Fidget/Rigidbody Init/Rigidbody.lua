@@ -19,9 +19,11 @@ function mtIndex.remove(self)
   end
   for i, joint in pairs(Fidget.joints.allJoints) do
     if joint.rigidbody1.index == index then
+      joint:remove()
       Fidget.joints.allJoints[i] = nil
     end
     if joint.rigidbody2.index == index then
+      joint:remove()
       Fidget.joints.allJoints[i] = nil
     end
   end
