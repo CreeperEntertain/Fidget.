@@ -121,7 +121,7 @@ function joints.createJoint(params)
     rigidbody2 = params.rigidbody2,
     minDistance = params.minDistance or params.distance or 0,
     maxDistance = params.maxDistance or params.distance or 0,
-    index = #joints + 1,
+    index = #joints.allJoints + 1,
     stiffness = params.stiffness or 1,
     onTick = params.onTick,
     onPhysicsStep = params.onPhysicsStep,
