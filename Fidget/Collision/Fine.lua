@@ -705,3 +705,4 @@ fineCollision.particlesphere = particlesphere
 fineCollision.cuboidcapsule = cuboidcapsule
 fineCollision.capsulecapsule = capsulecapsule
 fineCollision.spherecapsule = spherecapsule
+fineCollision.particlecapsule = particlecapsule
