@@ -274,7 +274,7 @@ function rigidbodies.raycast(startPos, endPos)
     local aabb, hitPos, side, aabbHitIndex = raycast:aabb((rigidbody.pos - startPos) * rigidbody.rotMat:transposed(),
       (rigidbody.pos - endPos) * rigidbody.rotMat:transposed(), aabb1)
     if aabbHitIndex then
-      local worldHitPos = (hitPos * rigidbody.rotMat) + rigidbody.pos
+      local worldHitPos = (-hitPos * rigidbody.rotMat) + rigidbody.pos
       AABBsHit[n] = { id = i, hitPos = worldHitPos, side = side, distance = length(startPos - worldHitPos) }
       n = n + 1
     end
