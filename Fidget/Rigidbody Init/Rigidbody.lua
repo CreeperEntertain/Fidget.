@@ -6,6 +6,8 @@ particles.spriteTasksToRender = {}
 rigidbodies.allRigidbodies = {}
 rigidbodyMT.__index = {}
 models.Fidget.Model_Placeholders.placeholders.cube:setVisible(false)
+models.Fidget.Model_Placeholders.placeholders.sphere:setVisible(false)
+models.Fidget.Model_Placeholders.placeholders.capsule:setVisible(false)
 local mtIndex = rigidbodyMT.__index
 local vec3 = vectors.vec3
 local length = vec3().length
