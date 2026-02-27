@@ -6,8 +6,10 @@ jointMT.__index = {}
 local mtIndex = jointMT.__index
 local copyStorage = models:newPart("copyStorage", "WORLD")
 function mtIndex.remove(self)
+    if self.model then
     self.model:getParent():removeChild(self.model)
   self.model:remove()
+    end
 joints.allJoints[self.index] = nil
 end
 
