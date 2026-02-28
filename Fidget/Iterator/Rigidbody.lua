@@ -287,16 +287,16 @@ local function createConstraints(
   local n = #constraints + 1
   local frictionCoef = (rigidbody1.friction + (type and rigidbody2.friction or 0)) * (type and 0.5 or 1)
   if frictionCoef > 0 then
-    local tangent1
-    local fn2x, fn2z = faceNormal2.x, faceNormal2.z
-    if fn2x < 0 then fn2x = -fn2x end
-    if fn2z < 0 then fn2z = -fn2z end
-    if fn2x > fn2z then
-      tangent1 = vec3(-faceNormal2.y, fn2x)
+local tangent1, tangent2
+
+    if math.abs(faceNormal2.x) > 0.5 then
+      tangent1 = vec3(faceNormal2.y, -faceNormal2.x, 0)
     else
-      tangent1 = vec3(0, -fn2z, faceNormal2.y)
+      tangent1 = vec3(0, faceNormal2.z, -faceNormal2.y)
     end
-    normalized(tangent1)
+    
+    tangent1 = normalized(tangent1)
+    tangent2 = normalized(faceNormal2 % tangent1)
     if rigidbody1.isInLink then
       rigidbody1 = rigidbody1.currentLink
     end
@@ -323,8 +323,6 @@ local function createConstraints(
         edges = vert
       }
 
-
-      local tangent2 = normalized((faceNormal2% tangent1))
 
       constraints[n + 1] = {
         rigidbody1 = rigidbody1,
