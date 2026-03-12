@@ -96,6 +96,7 @@ end
 
 function mtIndex.setDimensions(self, dims)
   self.dimensions = dims
+  self.halfDimensions = dims/2
 end
 
 function mtIndex.getDimensions(self)
